@@ -21,17 +21,20 @@ function saveQuotes() {
 }
 
 // Function to add a new quote
-function addQuote(quoteText, category) {
-    const newQuote = { text: quoteText, category: category };
-    quotes.push(newQuote);
-    saveQuotes();
-    populateCategories(); // Update categories dropdown
-    renderQuotes(quotes);
-    filterQuotes(); // Refresh displayed quotes
+   function addQuote(){
+    const text = newQuote.value;
+    const category = newCategory.value;
 
-    // Send the new quote to the server
-    postQuoteToServer(newQuote);
-}
+        
+        if (text == "" && category == ""){
+        alert("Enter quote and category");
+        return;
+        } else {
+
+        quotes.push({quotetext: text, quotecategory: category});
+        saveQuotes();
+       }
+      };
 
 // Post a new quote to the server
 async function postQuoteToServer(quote) {
