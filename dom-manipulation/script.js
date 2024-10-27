@@ -35,6 +35,26 @@ function saveQuotes() {
         saveQuotes();
        }
       };
+  function createAddQuoteForm(){
+
+        // Create form 
+        const Form = document.createElement("form");
+      //  Form.method = "POST";
+           // Add elements to form
+           Form.appendChild(newQuote);
+           Form.appendChild(newCategory);
+           Form.appendChild(addbutton);
+   
+           formdiv.appendChild(Form);
+           Form.addEventListener("submit", function(e){
+            e.preventDefault();
+            addQuote();
+            fetchQuotesFromServer();
+          newQuote.value = "";
+        newCategory.value = "";
+           });
+          
+        };
 
 // Post a new quote to the server
 async function postQuoteToServer(quote) {
